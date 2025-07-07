@@ -33,7 +33,7 @@ public static class DiModuleRegistration
 
         //Infra
 
-        if (configuration.GetConnectionString("SqlServer") != null)
+        if (!string.IsNullOrEmpty(configuration.GetConnectionString("SqlServer")))
             services.AddDbContext<MyFinanceContext>();
         else
             services.AddDbContext<MyFinanceContext, SqliteMyFinanceContext>();
