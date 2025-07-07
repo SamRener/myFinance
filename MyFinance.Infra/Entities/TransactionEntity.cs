@@ -1,14 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyFinance.Infra;
 
-public record TransactionEntity : IEntity
+public record TransactionEntity() : IEntity
 {
-    public TransactionEntity()
-    {
-        
-    }
-    public TransactionEntity(int id, string? history, DateTime? date, double? amount, ChartOfAccountEntity chartOfAccount)
+    public TransactionEntity(int id, string? history, DateTime? date, double? amount, ChartOfAccountEntity chartOfAccount) : this()
     {
         Id = id;
         History = history;
@@ -19,6 +16,7 @@ public record TransactionEntity : IEntity
     }
 
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; init; }
     public string? History { get; init; }
     public DateTime? Date { get; init; }
