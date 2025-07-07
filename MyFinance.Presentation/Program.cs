@@ -7,9 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
-builder.Services.Registrate(builder.Configuration);
+builder.Services.ConfigureServices(builder.Configuration);
 var app = builder.Build();
 
+app.Services.EnsureDatabase();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

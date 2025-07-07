@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="angular\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>

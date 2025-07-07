@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MyFinance.Infra.Migrations
+namespace MyFinance.Infra.Migrations.SqlServerMigrations
 {
     /// <inheritdoc />
-    public partial class PopulateDatabase : Migration
+    public partial class PopulateSqlServerDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,17 +25,13 @@ namespace MyFinance.Infra.Migrations
             migrationBuilder.InsertData("Transactions", ["History", "Date", "Amount", "ChartOfAccountId"], ["Peças da Blazer", "2025-05-10 03:00", 18000, 4]);
             migrationBuilder.InsertData("Transactions", ["History", "Date", "Amount", "ChartOfAccountId"], ["Salário", "2025-05-12 10:00", 10000, 6]);
             migrationBuilder.InsertData("Transactions", ["History", "Date", "Amount", "ChartOfAccountId"], ["ITAUSA", "2025-05-14 10:00", 678, 8]);
-                        
+
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Transactions");
 
-            migrationBuilder.DropTable(
-                name: "ChartOfAccounts");
         }
     }
 }
