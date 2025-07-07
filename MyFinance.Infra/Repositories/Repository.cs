@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace MyFinance.Infra.Repositories;
 
 public class Repository<T>(MyFinanceContext ctx) : IRepository<T> where T : class, IEntity
@@ -8,7 +10,7 @@ public class Repository<T>(MyFinanceContext ctx) : IRepository<T> where T : clas
 
     public virtual void Insert(T entity)
     {
-        ctx.Set<T>().Add(entity);
+        ctx.Entry<T>(entity).State = EntityState.Added;
         ctx.SaveChanges();
     }
 
