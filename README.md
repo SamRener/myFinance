@@ -20,14 +20,6 @@ Este projeto está desenvolvido utilizando **Clean Architecture** como base, sep
 - **Apresentação**: Endpoints e o app Angular que trabalha como frontend da aplicação. É representada pelo projeto `MyFinance.Presentation`.
 - **Inversão de Dependência**: Responsável por realizar todo o registro de DI. É representada pelo projeto `MyFinance.Ioc`.
 
-## 🚀 Funcionalidades Implementadas
-
-- Integração via mensagens em memória (MassTransit)
-- Persistência de dados com MongoDB
-- Exposição de endpoints HTTP
-- Logs estruturados com Serilog
-- Camadas independentes e testáveis
-
 ## ⚙️ Como Executar
 
 ```
