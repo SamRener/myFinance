@@ -9,6 +9,8 @@ Este projeto está estruturado em:
 - Entity Framework Core com suporte para Sqlite e SQL Server
 - EF Migrations para criação e inserção de registros em ambos os motores de banco de dados
 - Angular 20
+- OpenAPI Specification 3.0
+- Minimal Apis
 
 ## 🧱 Arquitetura
 
