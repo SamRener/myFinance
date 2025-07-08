@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Folder Include="angular\" />
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\browser\" />
   </ItemGroup>
 
   <ItemGroup>

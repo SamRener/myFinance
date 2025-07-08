@@ -8,9 +8,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureServices(builder.Configuration);
+
+builder.Services.AddCors((options) =>
+{
+    options.AddPolicy(name: "DefaultPolicy", policy =>
+    {
+        policy.AllowAnyOrigin();
+        policy.AllowAnyMethod();
+        policy.AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 app.Services.EnsureDatabase();
+
+app.UseStaticFiles();
+
+app.MapFallbackToFile("index.html");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -22,6 +37,7 @@ app.UseHttpsRedirection();
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseCors("DefaultPolicy");
 app.MapTransactions();
 app.MapChartOfAccounts();
 

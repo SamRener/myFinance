@@ -1,0 +1,38 @@
+<button [style.display]="(name != 'Inserir')? 'none' : 'block'" #btnModal type="button" class="btn btn-outline-info" data-bs-toggle="modal" attr.data-bs-target="#modal{{name}}">
+    Criar item de Transações
+</button>
+
+<div class="modal" [id]="'modal' + name" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{name}} uma transação</h5>
+            </div>
+            <div class="modal-body">
+                <p>Preencha o formulário abaixo:</p>
+                    <div class="mb-3">
+                        <label class="form-label">Histórico</label>
+                        <input type="text" class="form-control" id="history" [(ngModel)]="data.history" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Data</label>
+                        <input type="date" class="form-control" id="data" [(ngModel)]="data.date" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Valor</label>
+                        <input type="number" class="form-control" id="Amount" [(ngModel)]="data.amount" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Plano de Contas</label>
+                        <select class="form-select"  [(ngModel)]="data.chartOfAccountId" required>
+                            <option *ngFor="let opt of chartOfAccounts" [value]="opt.id">{{opt.name}}</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="reload()">Fechar</button>
+                <button type="button" class="btn btn-primary" (click)="save()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

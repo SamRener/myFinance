@@ -1,0 +1,42 @@
+<section class="mt-5" id="transacoes">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Transações</h1>
+                <div class="mt-5 mb-3">
+                    <upsert-transaction name="Inserir"></upsert-transaction>
+                </div>
+            </div>
+            <!-- tabela -->
+            <div class="col-12">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Histórico</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col">Plano de Contas</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of transactions">
+                            <th scope="row">{{data.id}}</th>
+                            <td >{{data.id}}</td>
+                            <td>{{data.history}}</td>
+                            <td>{{data.date}}</td>
+                            <td>{{data.amount}}</td>
+                            <td>{{data.chartOfAccountId}}</td>
+                            <td><button type="button" class="btn btn-warning btn-sm" (click)="edit(data)">Editar</button></td>
+                            <td><button type="button" class="btn btn-danger btn-sm" (click)="remove(data.id)">Remover</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<upsert-transaction *ngIf="dataToUpdate" name="Atualizar" [data]="dataToUpdate"></upsert-transaction>

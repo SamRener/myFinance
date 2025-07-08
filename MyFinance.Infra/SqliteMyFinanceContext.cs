@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace MyFinance.Infra;
 
-public class SqliteMyFinanceContext(/*IConfiguration configuration*/) : MyFinanceContext
+public class SqliteMyFinanceContext(IConfiguration configuration) : MyFinanceContext(configuration)
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlite("Data Source=MyFinance.db");
 }

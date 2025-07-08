@@ -1,0 +1,37 @@
+<button [style.display]="(name != 'Inserir')? 'none' : 'block'" #btnModal type="button" class="btn btn-outline-info" data-bs-toggle="modal" attr.data-bs-target="#modal{{name}}">
+    Criar item de Plano de Conta
+</button>
+
+<div class="modal" [id]="'modal' + name" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{name}} um plano de contas</h5>
+            </div>
+            <div class="modal-body">
+                <p>Preencha o formulário abaixo:</p>
+                    <div class="mb-3">
+                        <label class="form-label">Descrição</label>
+                        <input type="text" class="form-control" id="description" [(ngModel)]="data.name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tipo</label>
+                        <div class="form-check">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="type" id="type"  [(ngModel)]="data.type" value="R">
+                            <label class="form-check-label" for="typeIncome">Receita</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="type" id="type" [(ngModel)]="data.type" value="D">
+                            <label class="form-check-label" for="typeExpense">Despesa</label>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" (click)="reload()">Fechar</button>
+                <button type="button" class="btn btn-primary" (click)="save()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
