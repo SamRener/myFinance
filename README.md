@@ -47,5 +47,5 @@ Esse projeto possui a capacidade de rodar mesmo sem um banco de dados Sql Server
 dotnet run --project MyFinance.Presentation
 ```
 
-4. Acesse a aplicação em: http://localhost:5341
+4. Acesse a aplicação em: http://localhost:5141
 
